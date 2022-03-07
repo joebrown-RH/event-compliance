@@ -1,6 +1,6 @@
 ---
-- name: Rescue a possible comprimised system
-  hosts: rhel
+- name: Rescue a possible comprimised  Account system
+#  hosts: rhel
   gather_facts: true
   become: true
 
@@ -10,7 +10,7 @@
    
    - name: Retreive user files
      git:
-      repo: https://github.com/nmartins0611/event-compliance.git
+      repo: https://github.com/nmartins0611/system_resources
       dest: /restore
       update: yes
       clone: yes
@@ -37,5 +37,3 @@
      file:
        path: /restore
        state: absent 
-
-    
