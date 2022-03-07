@@ -1,6 +1,6 @@
 ---
 - name: Rescue a possible comprimised  Account system
-  hosts: 
+  hosts: rhel
   gather_facts: true
   become: true
 
