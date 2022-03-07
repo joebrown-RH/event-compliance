@@ -1,0 +1,41 @@
+---
+- name: Rescue a possible comprimised system
+  hosts: rhel
+  gather_facts: true
+  become: true
+
+#  vars:
+
+  tasks:
+   
+   - name: Retreive user files
+     git:
+      repo: https://github.com/nmartins0611/event-compliance.git
+      dest: /restore
+      update: yes
+      clone: yes
+
+   - name: Restore desired user database files
+     copy: 
+      src:  /restore/passwd
+      dest: /etc/
+      owner: root
+      group: root
+      mode: 644
+      remote_src: yes
+
+   - name: Restore desired user database files
+     copy: 
+      src:  /restore/shadow
+      dest: /etc/
+      owner: root
+      group: root
+      mode: 644
+      remote_src: yes
+
+   - name: Cleanup 
+     file:
+       path: /restore
+       state: absent 
+
+    
