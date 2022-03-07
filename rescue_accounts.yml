@@ -4,7 +4,12 @@
   gather_facts: true
   become: true
 
-#  vars:
+  vars:
+   my_repo: system_resources.git
+   my_repo_host: github.com
+   my_repo_user: nmartins0611
+   my_repo_url: git@{{ my_repo_host }}:{{ my_repo_user }}/{{ my_repo }}
+   my_repo_key: /Users/nmart/.ssh/id_rsa
 
   tasks:
    
@@ -12,9 +17,8 @@
      git:
       repo: https://github.com/nmartins0611/system_resources
       dest: /restore
-      update: yes
       clone: yes
-
+ 
    - name: Restore desired user database files
      copy: 
       src:  /restore/passwd
