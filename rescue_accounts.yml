@@ -4,12 +4,7 @@
   gather_facts: true
   become: true
 
-  vars:
-   my_repo: system_resources.git
-   my_repo_host: github.com
-   my_repo_user: nmartins0611
-   my_repo_url: git@{{ my_repo_host }}:{{ my_repo_user }}/{{ my_repo }}
-   my_repo_key: /Users/nmart/.ssh/id_rsa
+  #vars:
 
   tasks:
    
@@ -25,19 +20,12 @@
       dest: /etc/
       owner: root
       group: root
-      mode: 644
-      remote_src: yes
-
-   - name: Restore desired user database files
-     copy: 
-      src:  /restore/shadow
-      dest: /etc/
-      owner: root
-      group: root
-      mode: 644
+      mode: 0644
       remote_src: yes
 
    - name: Cleanup 
      file:
        path: /restore
        state: absent 
+
+  
