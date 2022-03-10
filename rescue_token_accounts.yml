@@ -65,3 +65,4 @@
    - name: Isolate node - too many compliance issues
      debug:
        msg: "Oh No! Lock Down ansible_nodename"
+     when: counter_value|int > 5
