@@ -1,5 +1,17 @@
 ---
 # tasks file for raise_ticket
+    - name: check aide
+      command: aide --check
+      register: aide_results
+      failed_when: "aide_results.rc == 1"
+      ignore_errors: true
+
+    - name: create aide report
+      copy:
+       dest: /tmp/aide.txt
+       content: |
+         {{ aide_results }}
+   
     - name: Create incident
       servicenow.itsm.incident:
        instance:
@@ -10,4 +22,8 @@
        state: new
        caller: admin
        short_description: System Remediation limit hit. Severity High - Nuno Help us!
-       description: node01.nostromo.co.za is in a critical condition. Remediation attempts have hit level 5
+       description: node01.nostromo.co.za is in a critical condition. Remediation attempts have hit level 5 n/ {{ aide_results }}
+       attachments:
+        - path: /tmp/aide.txt
+       urgency: high
+       impact: high
