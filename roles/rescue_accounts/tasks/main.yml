@@ -6,16 +6,16 @@
       dest: /restore
       clone: yes
  
-    - name: Restore desired user database files
-      copy: 
-       src:  /restore/passwd
-       dest: /etc/
-       owner: root
-       group: root
-       mode: 0644
-       remote_src: yes
+   - name: Restore desired user database files
+     copy: 
+      src:  /restore/passwd
+      dest: /etc/
+      owner: root
+      group: root
+      mode: 0644
+      remote_src: yes
 
-    - name: Cleanup 
-      file:
-        path: /restore
-        state: absent
+   - name: Cleanup 
+     file:
+       path: /restore
+       state: absent
