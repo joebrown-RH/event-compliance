@@ -1,5 +1,3 @@
----
-# tasks file for rescue_accounts
    - name: Retrieve user files
      git:
       repo: https://github.com/nmartins0611/system_resources
@@ -14,6 +12,25 @@
       group: root
       mode: 0644
       remote_src: yes
+
+   - name: Restore desired user database secrets
+     copy: 
+      src:  /restore/shadow
+      dest: /etc/
+      owner: root
+      group: root
+      mode: 0000
+      remote_src: yes
+
+   - name: Restore SSH configuration
+     copy: 
+      src:  /restore/ssh_config
+      dest: /etc/ssh/
+      owner: root
+      group: root
+      mode: 0644
+      remote_src: yes   
+
 
    - name: Cleanup 
      file:
