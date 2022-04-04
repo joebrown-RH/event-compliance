@@ -25,6 +25,6 @@
       name: ../roles/rescue_accounts
 
    - name: compliance check
-     tag: compliance
      include_role:
       name: ../roles/compliance_check   
+     tags: compliance
