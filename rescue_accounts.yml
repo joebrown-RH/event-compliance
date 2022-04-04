@@ -7,11 +7,11 @@
     - servicenow.itsm
 
   vars:
-   my_repo: system_resources.git
-   my_repo_host: github.com
-   my_repo_user: nmartins0611
+   my_repo: 
+   my_repo_host: 
+   my_repo_user: 
    my_repo_url: git@{{ my_repo_host }}:{{ my_repo_user }}/{{ my_repo }}
-   my_repo_key: /Users/nmart/.ssh/id_rsa
+   my_repo_key: 
    todays_date: 0
 
   tasks:
