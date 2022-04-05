@@ -1,0 +1,8 @@
+[Unit]
+Description={{ service_des }}
+
+[Service]
+ExecStart=/usr/bin/curl -v -k -s -i -X POST -H 'Content-Type:application/json' --data '{"host_config_key": "{{ hostconfigkey }}"}' {{ callback }}
+
+[Install]
+WantedBy=multi-user.target
