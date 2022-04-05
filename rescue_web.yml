@@ -1,0 +1,22 @@
+---
+- name: Restore webapp
+  hosts: rhel
+  gather_facts: true
+  become: true
+  
+  tasks:
+
+   - name: Grabbing the web files
+     git:
+      repo: https://github.com/nmartins0611/system_resources
+      dest: /restore
+      clone: yes
+
+   - name: Restore Web application
+     copy: 
+      src:  /restore/index.html
+      dest: /var/www/html
+      owner: apache
+      group: apache
+      mode: 0644
+      remote_src: yes
