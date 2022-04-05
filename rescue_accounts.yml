@@ -27,4 +27,6 @@
    - name: compliance check
      include_role:
       name: ../roles/compliance_check   
-     tags: compliance
+     tags: 
+       - compliance
+       - never
