@@ -1,0 +1,9 @@
+[Unit]
+Description={{ path_des }}
+
+[Path]
+PathModified={{ watched_file }}
+Unit={{ service_name }}.service
+
+[Install]
+WantedBy=multi-user.target
