@@ -4,13 +4,13 @@
   gather_facts: true
   become: true
   vars:
-   path_name: myTest
-   service_name: myTest
-   callback: https://controller.nostromo.co.za/api/v2/job_templates/33/callback/
-   hostconfigkey: 3232452123123123
-   watched_file: /tmp
-   path_des: myPathUnit
-   service_des: myServiceUnit
+   path_name: 
+   service_name: 
+   callback: 
+   hostconfigkey: 
+   watched_file: 
+   path_des: 
+   service_des: 
 
   tasks:
    
