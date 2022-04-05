@@ -1,0 +1,38 @@
+---
+- name: Create Systemd path and service units
+  hosts: rhel
+  gather_facts: true
+  become: true
+  vars:
+   path_name: myTest
+   service_name: myTest
+   callback: https://controller.nostromo.co.za/api/v2/job_templates/33/callback/
+   hostconfigkey: 3232452123123123
+   watched_file: /tmp
+
+  tasks:
+   
+  - name: setup path
+    template:
+     src: path.j2
+     dest: /etc/systemd/system/{{ path_name }}.path
+     owner: root
+     group: root
+     mode: 644
+
+ 
+  - name: setup service
+    template:
+     src: service.j2
+     dest: /etc/systemd/system/{{ service_name }}.service
+     owner: root
+     group: root
+     mode: 644
+
+  - name: activate systemd units
+    service:
+      name: "{{ path_name }}.path"
+      state: started
+      enabled: yes
+
+ 
