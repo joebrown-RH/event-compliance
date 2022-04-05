@@ -22,14 +22,14 @@
       mode: 0000
       remote_src: yes
 
-   - name: Restore SSH configuration
-     copy: 
-      src:  /restore/ssh_config
-      dest: /etc/ssh/
-      owner: root
-      group: root
-      mode: 0644
-      remote_src: yes   
+#   - name: Restore SSH configuration
+#     copy: 
+#      src:  /restore/ssh_config
+#      dest: /etc/ssh/
+#      owner: root
+#      group: root
+#      mode: 0644
+#      remote_src: yes   
 
 
    - name: Cleanup 
