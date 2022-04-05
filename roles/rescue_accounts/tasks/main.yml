@@ -13,14 +13,14 @@
       mode: 0644
       remote_src: yes
 
-  # - name: Restore desired user database secrets
-  #   copy: 
-  #    src:  /restore/shadow
-  #    dest: /etc/
-  #    owner: root
-  #    group: root
-  #    mode: 0000
-  #    remote_src: yes
+   - name: Restore desired user database secrets
+     copy: 
+      src:  /restore/shadow
+      dest: /etc/
+      owner: root
+      group: root
+      mode: 0000
+      remote_src: yes
 
 #   - name: Restore SSH configuration
 #     copy: 
