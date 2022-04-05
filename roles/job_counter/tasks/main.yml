@@ -17,8 +17,8 @@
        
    - name: counter value
      set_fact:
-      counter: "{{ job_details | regex_findall('processed') | length }}"
-   #   counter: 5
+    #  counter: "{{ job_details | regex_findall('processed') | length }}"
+      counter: 1
 
    - name: running complicance checks on host
      include_role:
