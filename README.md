@@ -1,12 +1,26 @@
-# event-compliance
+# Systemd EDA
 
- Systemd - put the accounts-mon.service and accounts-mon.path in /etc/systemd/system
- start the accounts-mon.service
 
-accounts-rescue.sh = triggers callback provisioning back to controller to trigger a the accounts rescue playbook.
+- Event Driven automation Concept - 
 
-rescue accounts playbook just restores the correct version of passwd.
+Using Systemd Path Units to monitor for file/folder changes on the FS
 
-rescue accounts token playbook restores the passwd but also creates a file to increment the number of remediations controller has had to run - This is with the idea that after a certain threshold controller will log a service now ticket for human intervention and/or isolate the host on the network.
+The playbooks : 
+
+**create_systemd.yml**: creates the path and service units for systemd on the desired node. This uses the path.j2 and service.j2 templates. 
+**rescue_accounts.yml**: This is the main playbook which is triggered in a Callback from the service path on systemd. This is done with Callback provisioning on Ansible Controller. 
+
+
+Roles:
+
+**compliance_check**: Basic sample playbook to check desired states of services - Example http firewalld running etc...
+
+**job_counter**: Checks the host's Job summury via API call to count the number of remediations that have triggerd on the host, this guides the automation to further remediation.
+
+**raise_ticket**: Sample playbook to log tickets on ServiceNow as a remediation step based on a count of the job_counter
+
+**rescue_accounts**: This is a playbook to restore the default passwd/shadow files - and used in the example of a file watcher to /etc/passwd. 
+
+
 
 
