@@ -2,7 +2,7 @@
 Description={{ service_des }}
 
 [Service]
-ExecStart=/usr/bin/curl -v -k -s -i -X POST -H 'Content-Type:application/json' --data '{"host_config_key": "{{ hostconfigkey }}"}' {{ callback }}
+ExecStart=/usr/bin/curl -v -k -s -i -X POST -H X-Forwarded-For: {{ inventory_hostname }} 'Content-Type:application/json' --data '{"host_config_key": "{{ hostconfigkey }}"}' {{ callback }}
 
 [Install]
 WantedBy=multi-user.target
