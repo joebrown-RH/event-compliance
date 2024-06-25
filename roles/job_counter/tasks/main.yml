@@ -6,7 +6,7 @@
 
    - name: api counter call
      uri:
-       url: https://controller.nostromo.co.za/api/v2/hosts/3/job_host_summaries/?job__job_template_id=20&created__regex={{ todays_date }}
+       url: https://ansible-1.nplqf.sandbox1078.opentlc.com/api/v2/hosts/5/job_host_summaries/?job__job_template_id=20&created__regex={{ todays_date }}
        user: "{{ myuser }}"
        password: "{{ mypass }}"
        force_basic_auth: true
