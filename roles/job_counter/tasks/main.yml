@@ -25,7 +25,8 @@
        name: ../roles/compliance_check
      when: counter|int == 3
 
-   - name: logging support ticket for escalation
-     include_role:
-      name: ../roles/raise_ticket
-     when: counter|int >= 4
+
+#   - name: logging support ticket for escalation
+#     include_role:
+#     name: ../roles/raise_ticket
+#     when: counter|int >= 4
