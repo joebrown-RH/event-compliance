@@ -1,0 +1,4 @@
+all:
+  hosts: 
+    testinventory.example.com
+    
